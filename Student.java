@@ -8,13 +8,13 @@
  */
 public class Student extends People {
 
+    private String school;
     private int studentNumber;
     private int grade;
-    private String school;
-    private double mark;
-
+    private int mark;
     private int studentHappinessLevel = 50;
     private int studentPassionLevel = 50;
+    private boolean uniAccepted;
 
     /**
      * This is the constructor function for new students
@@ -30,12 +30,24 @@ public class Student extends People {
      * 
      */
     public Student(String fullName, int age, double height, String dateOfBirth, int studentNumber, int grade,
-            String school, double mark) {
+            String school, int mark, boolean uniAccepted) {
         super(fullName, age, height, dateOfBirth);
         this.studentNumber = studentNumber;
         this.grade = grade;
         this.school = school;
         this.mark = mark;
+        this.uniAccepted = uniAccepted;
+    }
+
+     /**
+     * Shows the student's grades
+     */
+    public int getGrades() {
+        return grade;
+    }
+
+    public void setUniAccepted () {
+        uniAccepted = true;
     }
 
     /**
@@ -80,7 +92,7 @@ public class Student extends People {
      * @param c - This is the third number in the rounding calculator
      * @returns the rounded version of the sum of all numbers
      */
-    public int roundingCalculator(double a, double b, double c) {
+    public int decimalRemover(double a, double b, double c) {
         return(int)(a + b + c);
     }
 
@@ -105,8 +117,8 @@ public class Student extends People {
      * @param a - This is the mark of the student
      * @returns the updated mark of the student
      */
-    public double receiveMarks(double receivedMark) {
-        return (receivedMark + mark) / 2;
+    public void receiveMarks(int receivedMark) {
+        mark += receivedMark;
     }
 
      /**
@@ -122,6 +134,9 @@ public class Student extends People {
             studentHappinessLevel += 10;
         } else if (studentHappinessLevel >= 0 && mark < 50) {
             studentHappinessLevel -= 10;
+        }
+        if (uniAccepted && studentHappinessLevel <= 100) {
+            studentHappinessLevel += 20;
         }
         return studentHappinessLevel;
     }
