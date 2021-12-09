@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * An object holding the job, salary, passion level, and happiness level of an
  * employee
@@ -10,8 +12,8 @@
 public class Employee extends People {
 
     private String job;
-    private double salary;
-    private int employeePassionLevel;
+    private int salary;
+    private int employeePassionLevel = 0;
     private int employeeHappinessLevel = 50;
 
     /**
@@ -26,7 +28,7 @@ public class Employee extends People {
      * @param employeePassionLevel - This is the passion level of the employee
      * 
      */
-    public Employee(String fullName, int age, double height, String dateOfBirth, String job, double salary,
+    public Employee(String fullName, int age, double height, String dateOfBirth, String job, int salary,
             int employeePassionLevel) {
         super(fullName, age, height, dateOfBirth);
         this.job = job;
@@ -35,23 +37,60 @@ public class Employee extends People {
     }
 
     /**
-     * Shows employee's portfolio
+     * set passion level of the employee
+     */
+    public void setEmployeePassionLevel() {
+        Random rand = new Random();
+        employeePassionLevel += rand.nextInt(51);
+    }
+
+    /**
+     * set salary level of the employee
+     */
+    public void setEmployeeSalaryLevel(int newSalary) {
+        salary = newSalary;
+    }
+
+    /**
+     * set job of the employee
+     * 
+     * @param newJob - This is what to set the job to of the employee
+     */
+    public void setEmployeeJob(String newJob) {
+        job = newJob;
+    }
+
+    /**
+     * Shows portfolio of the employee
+     * 
+     * @returns the portfolio of the employee as a String
      */
     public String getEmployeePortfolio() {
         return "Name: " + fullName + "|Date of Birth: " + dateOfBirth + "|Job: " + job + "|Salary: " + salary;
     }
 
     /**
-     * Calculates happiness level
+     * Shows happiness level of the employee
      * 
-     * @returns happiness level as an Integer
+     * @returns the happiness level of the employee as an Integer
+     */
+    public int getHappinessLevel() {
+        return employeeHappinessLevel;
+    }
+
+    /**
+     * Calculates happiness level of the employee
+     * 
+     * @returns the new happiness level of the employee as an Integer
      */
     public int happinessLevel() {
-        if (employeeHappinessLevel <= 100 && salary >= 50000) {
+        if (employeeHappinessLevel <= 100 && salary >= 100000) {
             employeeHappinessLevel += 10;
+        } else if (salary <= 100000) {
+            employeeHappinessLevel -= 10;
         }
 
-        if (employeeHappinessLevel <= 100 && employeePassionLevel >= 50) {
+        if (employeeHappinessLevel <= 100 && employeePassionLevel > 50) {
             employeeHappinessLevel += 10;
         } else if (employeeHappinessLevel <= 100 && employeePassionLevel >= 70) {
             employeeHappinessLevel += 15;
@@ -59,7 +98,13 @@ public class Employee extends People {
             employeeHappinessLevel += 25;
         }
 
+        if (job == "Unemployed") {
+            employeeHappinessLevel -= 10;
+        } else {
+            employeeHappinessLevel += 10;
+        }
+
         return employeeHappinessLevel;
     }
-    
+
 }

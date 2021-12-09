@@ -9,12 +9,12 @@
 public abstract class People {
 
     protected String fullName;
+    protected String dateOfBirth;
     protected int age;
     protected double height;
-    protected String dateOfBirth;
 
     /**
-     * This is the constructor function for people
+     * This is the constructor function for new people
      * 
      * @param fullName    - This is the full name of people
      * @param age         - This is the age of people
@@ -30,21 +30,18 @@ public abstract class People {
     }
 
     /**
-     * Gets the name of people
+     * Returns the full name of people
+     * 
+     * @returns the full name of person as a String
      */
     public String getFullName() {
         return fullName;
     }
 
     /**
-     * Gets the information of people
-     */
-    public String getInformation() {
-        return "Age: " + age + "|Date of Birth: " + dateOfBirth + "|Height: " + height;
-    }
-
-    /**
      * Gets the happiness level of types of people
+     * 
+     * @returns the happiness level of types of people as an Integer
      */
     public abstract int happinessLevel();
 
