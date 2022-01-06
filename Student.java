@@ -29,7 +29,8 @@ public class Student extends People {
      * @param grade         - This is the grade of the student
      * @param school        - This is the school of the student
      * @param mark          - This is the mark of the student
-     * @param uniAccepted   - This is if the student got accepted to University or not
+     * @param uniAccepted   - This is if the student got accepted to University or
+     *                      not
      * 
      */
     public Student(String fullName, int age, double height, String dateOfBirth, int studentNumber, int grade,
@@ -62,9 +63,11 @@ public class Student extends People {
 
     /**
      * Sets university to accepted
+     * 
+     * @param uniAccepted - This is to set the student uni to accepted
      */
-    public void setUniAccepted() {
-        uniAccepted = true;
+    public void setUniAccepted(boolean uniAccepted) {
+        this.uniAccepted = uniAccepted;
     }
 
     /**
@@ -86,16 +89,20 @@ public class Student extends People {
         if (grade >= 12) {
             return "Name: " + fullName + "|Date of Birth: " + dateOfBirth + "|Passion Level: " +
                     studentPassionLevel + "|Grade: " + grade + "|Marks: " + mark;
+        } else {
+            return "Not applicable";
         }
-        return "Not applicable";
     }
 
     /**
      * Calculator that puts the number one after the other for the student
      * 
-     * @param a - This is the first number in the student's number creator calculator
-     * @param b - This is the second number in the student's number creator calculator
-     * @param c - This is the third number in the student's number creator calculator
+     * @param a - This is the first number in the student's number creator
+     *          calculator
+     * @param b - This is the second number in the student's number creator
+     *          calculator
+     * @param c - This is the third number in the student's number creator
+     *          calculator
      * @returns the numbers one after the other as a String
      */
     public String numberCreator(int a, int b, int c) {
@@ -108,9 +115,12 @@ public class Student extends People {
     /**
      * Calculator that removes the decimal for the student
      * 
-     * @param a - This is the first number in the student's deciaml remover calculator
-     * @param b - This is the second number in the student's deciaml remover calculator
-     * @param c - This is the third number in the student's deciaml remover calculator
+     * @param a - This is the first number in the student's deciaml remover
+     *          calculator
+     * @param b - This is the second number in the student's deciaml remover
+     *          calculator
+     * @param c - This is the third number in the student's deciaml remover
+     *          calculator
      * @returns the no decimal version of the sum of all numbers as an Integer
      */
     public int decimalRemover(double a, double b, double c) {

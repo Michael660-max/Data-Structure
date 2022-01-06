@@ -89,7 +89,7 @@ public class Main {
                 + "\nUniversity Application: " + student.universityApplication()
                 + "\nHe needs a mark greater than " + markReq + " to be admitted");
         if (student.getMark() >= markReq) {
-            student.setUniAccepted();
+            student.setUniAccepted(true);
             System.out.println("He was admitted!!");
         } else {
             System.out.println("He did not get admitted ): ");
@@ -154,8 +154,7 @@ public class Main {
 
         // Prints employee portfolio, chance of getting job, and showing new happiness
         // level
-        System.out.println(
-                "\nRobert finds possible jobs in the Job_Search_Results file and submits his employee portfolio\n"
+        System.out.println("\nRobert finds possible jobs in the Job_Search_Results file and submits his employee portfolio\n"
                         + "[Employee portfolio] " + employee.getEmployeePortfolio());
 
         int getJob = rand.nextInt(5);
@@ -163,7 +162,7 @@ public class Main {
             System.out.println("\nRobert gets his desired job!");
             String[] temp = list.get(store).split(",");
             employee.setEmployeeSalaryLevel(Integer.parseInt(temp[2]));
-            employee.setEmployeePassionLevel();
+            employee.setEmployeePassionLevel(rand.nextInt(51));
             employee.setEmployeeJob(temp[0] + ", " + temp[1]);
         } else {
             System.out.println("\nRobert does not get his desired job, unlucky");

@@ -1,5 +1,3 @@
-import java.util.*;
-
 /**
  * An object holding the job, salary, passion level, and happiness level of an
  * employee
@@ -38,26 +36,29 @@ public class Employee extends People {
 
     /**
      * set passion level of the employee
+     * 
+     * @param increaseEmployeePassionLevel - This is what to set the passion level of the employee
      */
-    public void setEmployeePassionLevel() {
-        Random rand = new Random();
-        employeePassionLevel += rand.nextInt(51);
+    public void setEmployeePassionLevel(int increaseEmployeePassionLevel) {
+        employeePassionLevel += increaseEmployeePassionLevel;
     }
 
     /**
      * set salary level of the employee
+     * 
+     * @param salary - This is what to set the salary of the employee
      */
-    public void setEmployeeSalaryLevel(int newSalary) {
-        salary = newSalary;
+    public void setEmployeeSalaryLevel(int salary) {
+        this.salary = salary;
     }
 
     /**
      * set job of the employee
      * 
-     * @param newJob - This is what to set the job to of the employee
+     * @param job - This is what to set the job to of the employee
      */
-    public void setEmployeeJob(String newJob) {
-        job = newJob;
+    public void setEmployeeJob(String job) {
+        this.job = job;
     }
 
     /**
